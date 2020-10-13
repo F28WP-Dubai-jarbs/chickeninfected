@@ -1,4 +1,4 @@
-TEAM JARBS
+#TEAM JARBS
 
 Members:  Jishnu (jpj2000), Alister (axc2000), Ryan (rd2004) Bhavika (bk2002), Svedha (sa2012).
 
@@ -12,3 +12,4 @@ Game Overview:
   - Survivors may defend themselves using weapons or use the map and barriers to their advantage.
   - A player wins if he survives till the end or if he has converted all survivors to zombies.
   - Therefore the goal of the game is to survive, or if converted, then convert all survivors.
+
