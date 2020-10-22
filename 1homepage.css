@@ -1,5 +1,8 @@
+
 body, html {
     height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: lavenderblush;
   }
   
   * {
@@ -66,3 +69,4 @@ body, html {
     background-color: #ddd;
     color: black;
 }
+

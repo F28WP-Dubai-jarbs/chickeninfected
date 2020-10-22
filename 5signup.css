@@ -1,3 +1,4 @@
+
 * {
     box-sizing: border-box;
     background-color: lavenderblush;    
@@ -14,7 +15,7 @@
 }
 
 input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
+  background-color: lightcyan;
   outline: none;
 }
 
@@ -23,26 +24,6 @@ hr {
   margin-bottom: 25px;
 }
 
-h1 {
-    font-family: Arial, Helvetica, sans-serif;
-    color: #48575e;
-}
-
-p{
-    font-family: Arial, Helvetica, sans-serif;
-    color: lightslategrey;
-}
-
-a{
-    font-family: Arial, Helvetica, sans-serif;
-    color: lightslategrey;
-    padding: 0.1rem 0.1rem;
-}
-
-
-label{
-    font-family: Arial, Helvetica, sans-serif;
-}
 
 /* Set a style for all buttons */
 button {
