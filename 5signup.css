@@ -1,4 +1,8 @@
-* {box-sizing: border-box}
+
+* {
+    box-sizing: border-box;
+    background-color: lavenderblush;    
+}
 
 /* Full-width input fields */
   input[type=text], input[type=password] {
@@ -19,6 +23,7 @@ hr {
   border: 1px solid #f1f1f1;
   margin-bottom: 25px;
 }
+
 
 /* Set a style for all buttons */
 button {
