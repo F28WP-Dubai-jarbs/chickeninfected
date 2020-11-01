@@ -1,0 +1,22 @@
+{
+  "name": "wp-cw",
+  "version": "1.0.0",
+  "description": "A top down racing game",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rd2004-boop/chickeninfected.git"
+  },
+  "author": "JARBS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rd2004-boop/chickeninfected/issues"
+  },
+  "homepage": "https://github.com/rd2004-boop/chickeninfected#readme",
+  "dependencies": {
+    "build": "^0.1.4"
+  }
+}
