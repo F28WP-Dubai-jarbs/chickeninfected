@@ -74,7 +74,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function gameOver() {
-    
+    if (this.state !== this.states.gameOver) {
+            this.fx.play('hit');
+
+            this.state = this.states.gameOver;
+        }
   }
 
   function sendPositionUpdates() {
