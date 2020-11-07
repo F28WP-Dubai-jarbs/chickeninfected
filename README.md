@@ -14,4 +14,10 @@ Game Overview:
   - Survivors may defend themselves using weapons or use the map and barriers to their advantage.
   - A player wins if he survives till the end or if he has converted all survivors to zombies.
   - Therefore the goal of the game is to survive, or if converted, then convert all survivors.
+  
+New Game Overview:
+  
+  - A multiplayer game where the last person to survive, wins.
+  - The player is eliminated if bird touches a pipe, the sky or the ground.
+  - 
 
