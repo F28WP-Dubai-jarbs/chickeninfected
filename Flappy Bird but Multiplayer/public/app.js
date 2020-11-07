@@ -73,7 +73,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function jump() {
+    new_location = speed + old_location
+
+    new_speed = acceleration + old_speed
     
+    gravity = 5; // tune this to get the gravity you want
+
+    birdYPos = birdYPos + birdYSpeed;
+
+    birdYSpeed = birdYSpeed + gravity;
+    
+    birdYSpeed = -6; // negative because "up"
   }
 
   function generateObstacles(randomHeight) {
