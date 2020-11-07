@@ -57,9 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   });
 
-  function startGame() {
-    
-  }
+  
 
   function startGame() {
     birdBottom -= gravity;
@@ -83,13 +81,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function gameOver() {
-    scoreLabel.innerHTML += " | Game Over";
-    clearInterval(gameTimerId);
-    isGameOver = true;
-    document.removeEventListener("keydown", control);
-    ground.classList.add("ground");
-    ground.classList.remove("ground-moving");
-    realtime.connection.close();
+    if (this.state !== this.states.gameOver) {
+            this.fx.play('hit');
+
+            this.state = this.states.gameOver;
+        }
   }
 
   function sendPositionUpdates() {
