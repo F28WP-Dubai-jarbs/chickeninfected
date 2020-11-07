@@ -61,8 +61,17 @@ document.addEventListener("DOMContentLoaded", () => {
     
   }
 
-  function control(e) {
-    
+  function startGame() {
+    birdBottom -= gravity;
+    bird.style.bottom = birdBottom + "px";
+    bird.style.left = birdLeft + "px";
+    for (item in allBirds) {
+      if (allBirds[item].targetBottom) {
+        let tempBottom = parseInt(allBirds[item].el.style.bottom);
+        tempBottom += (allBirds[item].targetBottom - tempBottom) * 0.5;
+        allBirds[item].el.style.bottom = tempBottom + "px";
+      }
+    }
   }
 
   function jump() {
@@ -74,11 +83,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function gameOver() {
-    if (this.state !== this.states.gameOver) {
-            this.fx.play('hit');
-
-            this.state = this.states.gameOver;
-        }
+    scoreLabel.innerHTML += " | Game Over";
+    clearInterval(gameTimerId);
+    isGameOver = true;
+    document.removeEventListener("keydown", control);
+    ground.classList.add("ground");
+    ground.classList.remove("ground-moving");
+    realtime.connection.close();
   }
 
   function sendPositionUpdates() {
