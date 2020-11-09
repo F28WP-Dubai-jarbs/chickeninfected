@@ -87,7 +87,53 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function generateObstacles(randomHeight) {
-    
+    if (!isGameOver) {
+      let obstacleLeft = 500;
+      let obstacleBottom = randomHeight;
+
+      const obstacle = document.createElement("div");
+      const topObstacle = document.createElement("div");
+      obstacle.classList.add("obstacle");
+      topObstacle.classList.add("topObstacle");
+      gameDisplay.appendChild(obstacle);
+      gameDisplay.appendChild(topObstacle);
+      obstacle.style.left = obstacleLeft + "px";
+      obstacle.style.bottom = obstacleBottom + "px";
+      topObstacle.style.left = obstacleLeft + "px";
+      topObstacle.style.bottom = obstacleBottom + gap + "px";
+      let timerId = setInterval(moveObstacle, 20);
+      obstacleTimers.push(timerId);
+      function moveObstacle() {
+        obstacleLeft -= 2;
+        obstacle.style.left = obstacleLeft + "px";
+        topObstacle.style.left = obstacleLeft + "px";
+        if (obstacleLeft === 220) {
+          myScore++;
+          setTimeout(() => {
+            sortLeaderboard();
+          }, 400);
+        }
+        if (obstacleLeft === -50) {
+          clearInterval(timerId);
+          gameDisplay.removeChild(obstacle);
+          gameDisplay.removeChild(topObstacle);
+        }
+        if (
+          (obstacleLeft > 200 &&
+            obstacleLeft < 280 &&
+            birdLeft === 220 &&
+            (birdBottom < obstacleBottom + 210 ||
+              birdBottom > obstacleBottom + gap - 150)) ||
+          birdBottom === 0
+        ) {
+          for (timer in obstacleTimers) {
+            clearInterval(obstacleTimers[timer]);
+          }
+          sortLeaderboard();
+          gameOver();
+        }
+      }
+    }
   }
 
   function gameOver() {
