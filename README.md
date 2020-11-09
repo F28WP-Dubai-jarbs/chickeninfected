@@ -14,9 +14,9 @@ Game Overview:
   - Survivors may defend themselves using weapons or use the map and barriers to their advantage.
   
 New Game Overview:
-  - A rework of the mobile game Flappy Bird.
+  - A rework of the mobile game Flappy Bird, in multiplayer.
   - Flappy Bird is an arcade-style game in which the player controls the bird.
   - The bird automatically descends downwards and moves towards the right side of the screen.
-  - A multiplayer game where the last person to survive, wins.
+  - The bird ascends on pressing the spacebar.
   - The player is eliminated if bird touches a pipe, the sky or the ground.
   - The players have to go through the obstacles without getting eliminated.
