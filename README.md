@@ -16,8 +16,8 @@ Game Overview:
   - Therefore the goal of the game is to survive, or if converted, then convert all survivors.
   
 New Game Overview:
-  
+  - A rework of the mobile game Flappy Bird.
   - A multiplayer game where the last person to survive, wins.
   - The player is eliminated if bird touches a pipe, the sky or the ground.
-  - 
+  - The players have to go through the obstacles without getting eliminated.
 
