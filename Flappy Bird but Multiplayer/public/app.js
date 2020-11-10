@@ -71,6 +71,55 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   }
+  
+  var obj;
+obj = document.getElementById("demo");
+obj.innerHTML = "Hello";
+  var person = {
+  firstName: "John",
+  lastName : "Doe",
+  id       : 5566,
+  fullName : function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+  
+  var length = 16;                               // Number
+var lastName = "Johnson";                      // String
+var x = {firstName:"John", lastName:"Doe"};    // Object
+  var x = 16 + "Volvo";
+  var x = "16" + "Volvo";
+  var x = 16 + "Volvo";
+  var x = "Volvo" + 16;
+  var x = 16 + 4 + "Volvo";
+  var x = "Volvo" + 16 + 4;
+  function myFunction(p1, p2) {
+  return p1 * p2;   // The function returns the product of p1 and p2
+}
+  
+function myFunction(a, b) {
+  return a * b;             // Function returns the product of a and b
+}
+  function toCelsius(fahrenheit) {
+  return (5/9) * (fahrenheit-32);
+}
+document.getElementById("demo").innerHTML = toCelsius(77);
+  function toCelsius(fahrenheit) {
+  return (5/9) * (fahrenheit-32);
+}
+  function validateForm() {
+  var x = document.forms["myForm"]["fname"].value;
+  if (x == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+}
+document.getElementById("demo").innerHTML = toCelsius;
+  var x = toCelsius(77);
+var text = "The temperature is " + x + " Celsius";
+  var text = "The temperature is " + toCelsius(77) + " Celsius";
+  var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+  
 
   function jump() {
     new_location = speed + old_location
