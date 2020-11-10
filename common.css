@@ -1,0 +1,37 @@
+* {box-sizing: border-box}
+body {font-family: Arial, Helvetica, sans-serif;}
+
+
+
+.navbar {
+  width: 100%;
+  background-color: #47423df6;
+  overflow: auto;
+}
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  width: 33.3%; /* Four links of equal widths */
+  text-align: center;
+}
+
+.navbar a:hover {
+  background-color: hsla(207, 90%, 30%, 0.788);
+}
+
+.navbar a.active1 {
+  background-color: hsla(207, 90%, 30%, 0.788);
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
