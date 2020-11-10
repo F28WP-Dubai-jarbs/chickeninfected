@@ -20,7 +20,44 @@ if (localStorage.getItem("flappy-nickname")) {
   myNickname = nickNamesDictionary[Math.floor(Math.random() * 34)];
   localStorage.setItem("flappy-nickname", myNickname);
 }
+var txt = "";
+var numbers = [45, 4, 9, 16, 25];
+numbers.forEach(myFunction);
 
+function myFunction(value) {
+  txt = txt + value + "<br>";
+}
+var numbers1 = [45, 4, 9, 16, 25];
+var numbers2 = numbers1.map(myFunction);
+
+function myFunction(value, index, array) {
+  return value * 2;
+}
+Example
+var numbers1 = [45, 4, 9, 16, 25];
+var numbers2 = numbers1.map(myFunction);
+
+function myFunction(value) {
+  return value * 2;
+}
+var numbers = [45, 4, 9, 16, 25];
+var over18 = numbers.filter(myFunction);
+
+function myFunction(value, index, array) {
+  return value > 18;
+}
+var numbers = [45, 4, 9, 16, 25];
+var over18 = numbers.filter(myFunction);
+
+function myFunction(value) {
+  return value > 18;
+}
+var numbers1 = [45, 4, 9, 16, 25];
+var sum = numbers1.reduce(myFunction);
+
+function myFunction(total, value, index, array) {
+  return total + value;
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   const sky = document.querySelector(".sky");
@@ -32,7 +69,13 @@ document.addEventListener("DOMContentLoaded", () => {
   let scoreLabel = document.getElementById("score-label");
   let topScoreLabel = document.getElementById("top-label");
   let scoreList = document.getElementById("score-list");
+  var txt = "";
+var numbers = [45, 4, 9, 16, 25];
+numbers.forEach(myFunction);
 
+function myFunction(value, index, array) {
+  txt = txt + value + "<br>";
+}
   let birdLeft = 220;
   let birdBottom = 350;
   let gravity = 2;
@@ -40,57 +83,70 @@ document.addEventListener("DOMContentLoaded", () => {
   let gap = 440;
 
   const filterNickname = async (nicknameText) => {
-    const http = new XMLHttpRequest();
-    let encodedText = encodeURIComponent(nicknameText);
-    http.open("GET", profanityBaseURL + encodedText + "&fill_text=***");
-    http.send();
-    http.onload = () => {
-      myNickname = http.responseText;
-      nicknameInput.value = myNickname;
-      localStorage.setItem("flappy-nickname", myNickname);
-    };
+    
   };
 
-  topScoreLabel.innerHTML =
-    "Top score - " + highScore + "pts by " + highScoreNickname;
-  nicknameInput.value = myNickname;
+  
   updateNicknameBtn.addEventListener("click", () => {
-    filterNickname(nicknameInput.value);
+    
   });
 
   window.addEventListener("keydown", function (e) {
-    if (e.keyCode == 32 && e.target == document.body) {
-      e.preventDefault();
-    }
+    
   });
 
   realtime.connection.once("connected", () => {
-    myClientId = realtime.auth.clientId;
-    myPublishChannel = realtime.channels.get("bird-position-" + myClientId);
-    topScoreChannel = realtime.channels.get(topScoreChannelName, {
-      params: { rewind: 1 },
-    });
-    topScoreChannel.subscribe((msg) => {
-      highScore = msg.data.score;
-      highScoreNickname = msg.data.nickname;
-      topScoreLabel.innerHTML =
-        "Top score - " + highScore + "pts by " + highScoreNickname;
-      topScoreChannel.unsubscribe();
-    });
-    gameChannel = realtime.channels.get(gameChannelName);
-    gameDisplay.onclick = function () {
-      if (!gameStarted) {
-        gameStarted = true;
-        gameChannel.presence.enter({
-          nickname: myNickname,
-        });
-        sendPositionUpdates();
-        showOtherBirds();
-        document.addEventListener("keydown", control);
-        gameTimerId = setInterval(startGame, 20);
-      }
+    
     };
   });
+  
+  var x = document.forms["frm1"];
+var text = "";
+var i;
+for (i = 0; i < x.length; i++) {
+  text += x.elements[i].value + "<br>";
+}
+   function startGame() {
+    birdBottom -= gravity;
+    bird.style.bottom = birdBottom + "px";
+    bird.style.left = birdLeft + "px";
+    for (item in allBirds) {
+      if (allBirds[item].targetBottom) {
+        let tempBottom = parseInt(allBirds[item].el.style.bottom);
+        tempBottom += (allBirds[item].targetBottom - tempBottom) * 0.5;
+        allBirds[item].el.style.bottom = tempBottom + "px";
+      }
+    }
+  }
+document.getElementById("demo").innerHTML = text;
+  
+  function myMove() {
+  var elem = document.getElementById("animate");
+  var pos = 0;
+  var id = setInterval(frame, 5);
+  function frame() {
+    if (pos == 350) {
+      clearInterval(id);
+    } else {
+      pos++;
+      elem.style.top = pos + 'px';
+      elem.style.left = pos + 'px';
+    }
+  }
+}
+  document.getElementById("demo").innerHTML =
+"Page path is " + window.location.pathname;
+  var x, y, z;    // Statement 1
+x = 5;          // Statement 2
+y = 6;          // Statement 3
+z = x + y;      // Statement 4
+  var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.sort();        // Sorts the elements of fruits
+  var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.sort();        // First sort the elements of fruits
+fruits.reverse();     // Then reverse the order of the elements
+
+  
 
   function startGame() {
     birdBottom -= gravity;
@@ -104,16 +160,68 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   }
-
-  function control(e) {
-    if (e.keyCode === 32 && !isGameOver) {
-      jump();
-    }
+  
+  var obj;
+obj = document.getElementById("demo");
+obj.innerHTML = "Hello";
+  var person = {
+  firstName: "John",
+  lastName : "Doe",
+  id       : 5566,
+  fullName : function() {
+    return this.firstName + " " + this.lastName;
   }
+};
+  
+  var length = 16;                               // Number
+var lastName = "Johnson";                      // String
+var x = {firstName:"John", lastName:"Doe"};    // Object
+  var x = 16 + "Volvo";
+  var x = "16" + "Volvo";
+  var x = 16 + "Volvo";
+  var x = "Volvo" + 16;
+  var x = 16 + 4 + "Volvo";
+  var x = "Volvo" + 16 + 4;
+  function myFunction(p1, p2) {
+  return p1 * p2;   // The function returns the product of p1 and p2
+}
+  
+function myFunction(a, b) {
+  return a * b;             // Function returns the product of a and b
+}
+  function toCelsius(fahrenheit) {
+  return (5/9) * (fahrenheit-32);
+}
+document.getElementById("demo").innerHTML = toCelsius(77);
+  function toCelsius(fahrenheit) {
+  return (5/9) * (fahrenheit-32);
+}
+  function validateForm() {
+  var x = document.forms["myForm"]["fname"].value;
+  if (x == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+}
+document.getElementById("demo").innerHTML = toCelsius;
+  var x = toCelsius(77);
+var text = "The temperature is " + x + " Celsius";
+  var text = "The temperature is " + toCelsius(77) + " Celsius";
+  var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+  
 
   function jump() {
-    if (birdBottom < 500) birdBottom += 50;
-    bird.style.bottom = birdBottom + "px";
+    new_location = speed + old_location
+
+    new_speed = acceleration + old_speed
+    
+    gravity = 5; // tune this to get the gravity you want
+
+    birdYPos = birdYPos + birdYSpeed;
+
+    birdYSpeed = birdYSpeed + gravity;
+    
+    birdYSpeed = -6; // negative because "up"
   }
 
   function generateObstacles(randomHeight) {
@@ -167,27 +275,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function gameOver() {
-    scoreLabel.innerHTML += " | Game Over";
-    clearInterval(gameTimerId);
-    isGameOver = true;
-    document.removeEventListener("keydown", control);
-    ground.classList.add("ground");
-    ground.classList.remove("ground-moving");
-    realtime.connection.close();
+    if (this.state !== this.states.gameOver) {
+            this.fx.play('hit');
+
+            this.state = this.states.gameOver;
+        }
   }
 
   function sendPositionUpdates() {
-    let publishTimer = setInterval(() => {
-      myPublishChannel.publish("pos", {
-        bottom: parseInt(bird.style.bottom),
-        nickname: myNickname,
-        score: myScore,
-      });
-      if (isGameOver) {
-        clearInterval(publishTimer);
-        myPublishChannel.detach();
-      }
-    }, 100);
+    
   }
 
 
