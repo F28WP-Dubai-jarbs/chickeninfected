@@ -1,3 +1,42 @@
+body {
+  font-family: "VT323", monospace;
+  margin: 0;
+}
+
+input {
+  font-family: inherit;
+  padding: 6px 8px;
+  border-radius: 10px;
+  font-size: 16px;
+  text-align: center;
+  width: 120px;
+  color: #533c44;
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  display: inline-block;
+  padding: 10px 28px;
+  border: 2px solid white;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: inherit;
+  color: white;
+  background-color: #533c44;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #423036;
+}
+
+button:active {
+  background-color: #423036;
+}
 
 .borderLeft {
   width: 60px;
