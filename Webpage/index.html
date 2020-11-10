@@ -2,22 +2,111 @@
 
     <head>
         <link rel="stylesheet" type="text/css" href="common.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="index.css" media="all" />
+        
     </head>
 
+<body>
     
 
-    <div class="container">
+
+    <div class="container1">
         <img src="capture.jpg" alt="Norway" style="width:100%;"> </div>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <div class="navbar">
-        <a class="active" href="index.html"><i class="fa fa-fw fa-home"></i> Home</a>
+        <a class="active1" href="index.html"><i class="fa fa-fw fa-book"></i> Project</a>
         <a href="aboutgame.html"><i class="fa fa-fw fa-play"></i> About Game</a>
         <a href="gamelink.html"><i class="fa fa-fw fa-link"></i> Game Link</a>
-        <a href="project.html"><i class="fa fa-fw fa-book"></i> Project</a>
+        
     </div>
 
 
+    <h1>Our Team</h1>
+    <div class="row">
+        <div class="column">
+          <div class="card">
+            <p><i class="fa fa-user"></i></p>
+            <h3>Ryan Denny</h3>
+            <p>rd2004</p>
+          </div>
+        </div>
 
+        <div class="column">
+            <div class="card">
+              <p><i class="fa fa-user"></i></p>
+              <h3>Bhavika Kaliya</h3>
+              <p>bk2002</p>
+            </div>
+          </div>
+      
+        <div class="column">
+          <div class="card">
+            <p><i class="fa fa-user"></i></p>
+            <h3>Alister Charles</h3>
+            <p>axc2000</p>
+          </div>
+        </div>
+      
+        <div class="column">
+          <div class="card">
+            <p><i class="fa fa-user"></i></p>
+            <h3>Svedha Ashok</h3>
+            <p>sa2012</p>
+          </div>
+        </div>
+      
+        <div class="column">
+          <div class="card">
+            <p><i class="fa fa-user"></i></p>
+            <h3>Jishnu Jayaraj</h3>
+            <p>jpj2000</p>
+          </div>
+        </div>
+      </div>
+
+      <h1>F28 Web Programming Coursework</h1>
+    
+    <button type="button" class="collapsible">Objectives</button>
+<div class="content">
+  <p><li>Design and develop a sufficiently complex web-based game using advance web techniques
+    such as design pattern and modularity</li>
+    <li>Efficiently manage and document the code using appropriate software tools and techniques</li>
+    <li>Incorporate back-end services into the game for asset management and game-state
+    management</li>
+    <li>Use appropriate web technologies to comply with best practices</li></p>
+</div>
+
+
+<button type="button" class="collapsible">Criteria</button>
+<div class="content">
+    <p><li>Demonstrate Understanding of HTML, CSS and Javascript</li>
+        <li>Client/Server Communications</li>
+        <li>Database/Security</li>
+        <li>Code structure and Usability</li>
+    <li>Development progress and testing</li>
+<li>Team work and management</li></p>
+  
+</div>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+
+
+</body>
 </html>
