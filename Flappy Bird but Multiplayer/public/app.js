@@ -71,6 +71,18 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   }
+  
+  var obj;
+obj = document.getElementById("demo");
+obj.innerHTML = "Hello";
+  var person = {
+  firstName: "John",
+  lastName : "Doe",
+  id       : 5566,
+  fullName : function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
 
   function jump() {
     new_location = speed + old_location
