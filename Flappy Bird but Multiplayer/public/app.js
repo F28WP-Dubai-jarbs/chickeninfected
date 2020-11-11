@@ -34,6 +34,8 @@ const nickNamesDictionary = [
   "grease trogon",
   "raven nightjar",
   "sepia barbet",
+  "blue bird",
+  "red eagle",
 ];
 let obstacleTimers = [];
 let gameStarted = false;
