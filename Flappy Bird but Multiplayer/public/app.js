@@ -56,7 +56,44 @@ if (localStorage.getItem("flappy-nickname")) {
   myNickname = nickNamesDictionary[Math.floor(Math.random() * 34)];
   localStorage.setItem("flappy-nickname", myNickname);
 }
+var txt = "";
+var numbers = [45, 4, 9, 16, 25];
+numbers.forEach(myFunction);
 
+function myFunction(value) {
+  txt = txt + value + "<br>";
+}
+var numbers1 = [45, 4, 9, 16, 25];
+var numbers2 = numbers1.map(myFunction);
+
+function myFunction(value, index, array) {
+  return value * 2;
+}
+Example
+var numbers1 = [45, 4, 9, 16, 25];
+var numbers2 = numbers1.map(myFunction);
+
+function myFunction(value) {
+  return value * 2;
+}
+var numbers = [45, 4, 9, 16, 25];
+var over18 = numbers.filter(myFunction);
+
+function myFunction(value, index, array) {
+  return value > 18;
+}
+var numbers = [45, 4, 9, 16, 25];
+var over18 = numbers.filter(myFunction);
+
+function myFunction(value) {
+  return value > 18;
+}
+var numbers1 = [45, 4, 9, 16, 25];
+var sum = numbers1.reduce(myFunction);
+
+function myFunction(total, value, index, array) {
+  return total + value;
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   const sky = document.querySelector(".sky");
@@ -154,31 +191,7 @@ fruits.reverse();     // Then reverse the order of the elements
     }
   }
   
-  var obj;
-obj = document.getElementById("demo");
-obj.innerHTML = "Hello";
-  var person = {
-  firstName: "John",
-  lastName : "Doe",
-  id       : 5566,
-  fullName : function() {
-    return this.firstName + " " + this.lastName;
-  }
-};
-  
-  var length = 16;                               // Number
-var lastName = "Johnson";                      // String
-var x = {firstName:"John", lastName:"Doe"};    // Object
-  var x = 16 + "Volvo";
-  var x = "16" + "Volvo";
-  var x = 16 + "Volvo";
-  var x = "Volvo" + 16;
-  var x = 16 + 4 + "Volvo";
-  var x = "Volvo" + 16 + 4;
-  function myFunction(p1, p2) {
-  return p1 * p2;   // The function returns the product of p1 and p2
-}
-  
+
 function myFunction(a, b) {
   return a * b;             // Function returns the product of a and b
 }
