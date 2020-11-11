@@ -1,4 +1,40 @@
-
+const profanityBaseURL = "https://www.purgomalum.com/service/plain?text=";
+const nickNamesDictionary = [
+  "pink crow",
+  "green pigeon",
+  "brown robin",
+  "blue woodpecker",
+  "purple sparrow",
+  "yellow kingfisher",
+  "gray warbler",
+  "orange bulbul",
+  "black drongo",
+  "red seagulls",
+  "beige flamingo",
+  "frost eagles",
+  "fuscia owl",
+  "mint kite",
+  "hickory parakeet",
+  "tortilla beeeater",
+  "wood munia",
+  "violet dove",
+  "eggplant peacock",
+  "golden oriole",
+  "magenta flycatcher",
+  "mulberry quail",
+  "slate magpie",
+  "navy roller",
+  "azure emu",
+  "arctic sunbird",
+  "iris starling",
+  "olive rockthrush",
+  "pecan barnowl",
+  "carob goose",
+  "coal duck",
+  "grease trogon",
+  "raven nightjar",
+  "sepia barbet",
+];
 let obstacleTimers = [];
 let gameStarted = false;
 let gameTimerId;
@@ -20,44 +56,7 @@ if (localStorage.getItem("flappy-nickname")) {
   myNickname = nickNamesDictionary[Math.floor(Math.random() * 34)];
   localStorage.setItem("flappy-nickname", myNickname);
 }
-var txt = "";
-var numbers = [45, 4, 9, 16, 25];
-numbers.forEach(myFunction);
 
-function myFunction(value) {
-  txt = txt + value + "<br>";
-}
-var numbers1 = [45, 4, 9, 16, 25];
-var numbers2 = numbers1.map(myFunction);
-
-function myFunction(value, index, array) {
-  return value * 2;
-}
-Example
-var numbers1 = [45, 4, 9, 16, 25];
-var numbers2 = numbers1.map(myFunction);
-
-function myFunction(value) {
-  return value * 2;
-}
-var numbers = [45, 4, 9, 16, 25];
-var over18 = numbers.filter(myFunction);
-
-function myFunction(value, index, array) {
-  return value > 18;
-}
-var numbers = [45, 4, 9, 16, 25];
-var over18 = numbers.filter(myFunction);
-
-function myFunction(value) {
-  return value > 18;
-}
-var numbers1 = [45, 4, 9, 16, 25];
-var sum = numbers1.reduce(myFunction);
-
-function myFunction(total, value, index, array) {
-  return total + value;
-}
 
 document.addEventListener("DOMContentLoaded", () => {
   const sky = document.querySelector(".sky");
@@ -69,13 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let scoreLabel = document.getElementById("score-label");
   let topScoreLabel = document.getElementById("top-label");
   let scoreList = document.getElementById("score-list");
-  var txt = "";
-var numbers = [45, 4, 9, 16, 25];
-numbers.forEach(myFunction);
 
-function myFunction(value, index, array) {
-  txt = txt + value + "<br>";
-}
   let birdLeft = 220;
   let birdBottom = 350;
   let gravity = 2;
