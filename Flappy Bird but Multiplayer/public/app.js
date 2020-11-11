@@ -36,6 +36,10 @@ const nickNamesDictionary = [
   "sepia barbet",
   "blue bird",
   "red eagle",
+  "fighter jet",
+  "magenta phoenix",
+  "krammer jammer",
+  "swishy meerkat",
 ];
 let obstacleTimers = [];
 let gameStarted = false;
