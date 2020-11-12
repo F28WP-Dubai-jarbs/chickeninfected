@@ -84,8 +84,9 @@ button:active {
   width: 60px;
   height: 45px;
   position: absolute;
-  left: 220px;
-  bottom: 300px;
+  left: 200px;
+  top: 250px;
+
 }
 
 .other-bird {
