@@ -187,10 +187,11 @@ document.getElementById("demo").innerHTML = toCelsius(77);
   return (5/9) * (fahrenheit-32);
 }
   function validateForm() {
-  var x = document.forms["myForm"]["fname"].value;
   if (x == "") {
     alert("Name must be filled out");
     return false;
+  else
+    alert("Good choice for a name");
   }
 }
 document.getElementById("demo").innerHTML = toCelsius;
