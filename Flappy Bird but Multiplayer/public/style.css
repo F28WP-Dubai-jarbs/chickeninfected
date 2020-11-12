@@ -102,7 +102,7 @@ button:active {
   background-image: url("flappybird-pipe.png");
   width: 60px;
   height: 300px;
-  position: absolute;
+  position: relative;
 }
 
 .topObstacle {
@@ -133,7 +133,7 @@ button:active {
 
 .ground-container {
   width: 500px;
-  height: 150px;
+  height: 140px;
 }
 
 .ground {
@@ -142,7 +142,7 @@ button:active {
   height: 150px;
   background-image: url("bottom-background.png");
   width: 500px;
-  z-index: +1;
+  z-index: -1;
   margin-left: 60px;
 }
 
@@ -152,7 +152,5 @@ button:active {
   height: 150px;
   background-image: url("bottom-background.png");
   background-repeat: repeat-x;
-  animation: slideright 100s infinite linear;
-  -webkit-animation: slideright 100s infinite linear;
   min-width: 100%;
 }
