@@ -40,6 +40,8 @@ const nickNamesDictionary = [
   "magenta phoenix",
   "krammer jammer",
   "swishy meerkat",
+  "pink penguin",
+  "black swan",
 ];
 let obstacleTimers = [];
 let gameStarted = false;
