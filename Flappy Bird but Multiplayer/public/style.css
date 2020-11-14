@@ -19,11 +19,13 @@ input:focus {
 
 button {
   display: inline-block;
-  padding: 10px 20px;
-  border: 2px solid black;
+  padding: 10px 28px;
+  border: 2px solid white;
   border-radius: 10px;
-  font-size: 15px;
-  color: blue;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: inherit;
+  color: white;
   background-color: #533c44;
   cursor: pointer;
 }
@@ -154,4 +156,113 @@ button:active {
   animation: slideright 100s infinite linear;
   -webkit-animation: slideright 100s infinite linear;
   min-width: 100%;
+}
+
+.title {
+  margin: 60px 20px 20px;
+  color: #533c44;
+  font-size: 4vw;
+  text-shadow: 2px 2px #dadada;
+  text-align: center;
+  width: 600px;
+}
+
+.instruction {
+  margin: 0px 20px 0px;
+  text-align: center;
+  width: 600px;
+  font-size: 25px;
+}
+
+.my-info {
+  display: flex;
+  justify-content: center;
+  width: 600px;
+}
+
+.nickname {
+  display: flex;
+  margin: 20px 20px 40px 60px;
+  text-align: center;
+}
+
+.my-score {
+  font-size: 22px;
+  margin-top: 1%;
+  color: #533c44;
+}
+
+.scoreboard {
+  position: relative;
+  max-width: 450px;
+  margin: 20px 20px 20px 80px;
+  padding: 20px;
+  background-color: #ded895;
+  background-image: url(top-right-brown.png), url(top-left-brown.png),
+    url(bottom-right-brown.png), url(bottom-left-brown.png);
+  background-position: top right, top left, bottom right, bottom left;
+  background-repeat: no-repeat;
+}
+
+.scoreboard:before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  display: block;
+  width: calc(100% - 20px);
+  height: calc(100% - 4px);
+  border-top: 2px solid #b1878f;
+  border-bottom: 2px solid #b1878f;
+  z-index: 1;
+}
+
+.scoreboard:after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  display: block;
+  width: calc(100% - 4px);
+  height: calc(100% - 20px);
+  border-left: 2px solid #b1878f;
+  border-right: 2px solid #b1878f;
+  z-index: 1;
+}
+
+.score-title {
+  margin: 0 0 0;
+  font-family: "VT323", monospace;
+  font-size: 3em;
+  text-align: center;
+  color: #ee5140;
+  text-shadow: 2px 2px #f0eaa1;
+}
+
+.top-score {
+  text-align: center;
+  margin: 0px 20px;
+  font-size: 20px;
+  color: #533c44;
+}
+
+.score-list {
+  position: relative;
+  height: 250px;
+  max-height: 250px;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  z-index: 2;
+}
+
+.score-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 2px 20px;
+  list-style: none;
+  font-size: 2em;
+  font-weight: bolder;
+  color: white;
+  text-shadow: 1px 1px 1px black;
 }

@@ -1,9 +1,11 @@
 * {box-sizing: border-box}
 body {font-family: Arial, Helvetica, sans-serif;}
 
+
+
 .navbar {
   width: 100%;
-  background-color: #555;
+  background-color: #47423df6;
   overflow: auto;
 }
 
@@ -13,16 +15,16 @@ body {font-family: Arial, Helvetica, sans-serif;}
   color: white;
   text-decoration: none;
   font-size: 17px;
-  width: 25%; /* Four links of equal widths */
+  width: 33.3%; /* Four links of equal widths */
   text-align: center;
 }
 
 .navbar a:hover {
-  background-color: rgb(17, 138, 175);
+  background-color: hsla(207, 90%, 30%, 0.788);
 }
 
-.navbar a.active {
-  background-color:  rgb(17, 138, 175);
+.navbar a.active1 {
+  background-color: hsla(207, 90%, 30%, 0.788);
 }
 
 @media screen and (max-width: 500px) {

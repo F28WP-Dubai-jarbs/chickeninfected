@@ -1,0 +1,77 @@
+<html>
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="common.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="aboutgame.css" media="all" />
+    </head>
+
+    <div class="container1">
+        <img src="capture.jpg" alt="Norway" style="width:100%;"> </div>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <div class="navbar">
+        <a href="index.html"><i class="fa fa-fw fa-book"></i> Project</a>
+        <a class="active1" href="aboutgame.html"><i class="fa fa-fw fa-play"></i> About Game</a>
+        <a href="gamelink.html"><i class="fa fa-fw fa-link"></i> Game Link</a>
+        
+    </div>
+
+
+
+    <h1>Game Development</h1>
+
+    <button type="button" class="collapsible">Gameplay and controls</button>
+<div class="content">
+  <p>to be updated</p>
+</div>
+
+<button type="button" class="collapsible">Youtube video link</button>
+<div class="content">
+  <p>to be updated</p>
+</div>
+
+
+    <button type="button" class="collapsible">Programming</button>
+<div class="content">
+    <p>HTML</p>
+    <div class="container">
+      <div class="skills html">90%</div>
+    </div>
+    
+    <p>CSS</p>
+    <div class="container">
+      <div class="skills css">80%</div>
+    </div>
+    
+    <p>JavaScript</p>
+    <div class="container">
+      <div class="skills js">65%</div>
+    </div>
+    
+</div>
+<button type="button" class="collapsible">Game report</button>
+<div class="content">
+  <p>to be updated</p>
+</div>
+
+
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+    
+
+</html>
