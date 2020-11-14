@@ -127,34 +127,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   
 
-  function jump() {
-    new_location = speed + old_location
-
-    new_speed = acceleration + old_speed
-    
-    gravity = 5; // tune this to get the gravity you want
-
-    birdYPos = birdYPos + birdYSpeed;
-
-    birdYSpeed = birdYSpeed + gravity;
-    
-    birdYSpeed = -6; // negative because "up"
-    
-    function jump(){
-    jumping = 1;
-    let jumpCount = 0;
-    var jumpInterval = setInterval(function(){
-        var characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
-        if((characterTop>6)&&(jumpCount<15)){
-            character.style.top = (characterTop-5)+"px";
-        }
-        if(jumpCount>20){
-            clearInterval(jumpInterval);
-            jumping=0;
-            jumpCount=0;
-        }
-        jumpCount++;
-    },10);
+ function jump() {
+    if (birdBottom < 500) birdBottom += 50;
+    bird.style.bottom = birdBottom + "px";
   }
 
   function generateObstacles(randomHeight) {
@@ -208,11 +183,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function gameOver() {
-    if (this.state !== this.states.gameOver) {
-            this.fx.play('hit');
-
-            this.state = this.states.gameOver;
-        }
+    scoreLabel.innerHTML += " | Game Over";
+    clearInterval(gameTimerId);
+    isGameOver = true;
+    document.removeEventListener("keydown", control);
+    ground.classList.add("ground");
+    ground.classList.remove("ground-moving");
+    realtime.connection.close();
   }
 
   function sendPositionUpdates() {
