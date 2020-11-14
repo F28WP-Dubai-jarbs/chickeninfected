@@ -65,21 +65,6 @@ if (localStorage.getItem("flappy-nickname")) {
   localStorage.setItem("flappy-nickname", myNickname);
 }
 
-function myFunction(value, index, array) {
-  return value > 18;
-}
-var numbers = [45, 4, 9, 16, 25];
-var over18 = numbers.filter(myFunction);
-
-function myFunction(value) {
-  return value > 18;
-}
-var numbers1 = [45, 4, 9, 16, 25];
-var sum = numbers1.reduce(myFunction);
-
-function myFunction(total, value, index, array) {
-  return total + value;
-}
 
 document.addEventListener("DOMContentLoaded", () => {
   const sky = document.querySelector(".sky");
@@ -99,14 +84,25 @@ document.addEventListener("DOMContentLoaded", () => {
   let gap = 440;
 
   const filterNickname = async (nicknameText) => {
-    
+    const http = new XMLHttpRequest();
+    let encodedText = encodeURIComponent(nicknameText);
+    http.open("GET", profanityBaseURL + encodedText + "&fill_text=***");
+    http.send();
+    http.onload = () => {
+      myNickname = http.responseText;
+      nicknameInput.value = myNickname;
+      localStorage.setItem("flappy-nickname", myNickname);
+    };
   };
 
   
+  topScoreLabel.innerHTML =
+    "Top score - " + highScore + "pts by " + highScoreNickname;
+  nicknameInput.value = myNickname;
   updateNicknameBtn.addEventListener("click", () => {
-    
+    filterNickname(nicknameInput.value);
   });
-
+  
   window.addEventListener("keydown", function (e) {
     
   });
@@ -115,54 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     };
   });
-  
-  var x = document.forms["frm1"];
-var text = "";
-var i;
-for (i = 0; i < x.length; i++) {
-  text += x.elements[i].value + "<br>";
-}
-   function startGame() {
-    birdBottom -= gravity;
-    bird.style.bottom = birdBottom + "px";
-    bird.style.left = birdLeft + "px";
-    for (item in allBirds) {
-      if (allBirds[item].targetBottom) {
-        let tempBottom = parseInt(allBirds[item].el.style.bottom);
-        tempBottom += (allBirds[item].targetBottom - tempBottom) * 0.5;
-        allBirds[item].el.style.bottom = tempBottom + "px";
-      }
-    }
-  }
-document.getElementById("demo").innerHTML = text;
-  
-  function myMove() {
-  var elem = document.getElementById("animate");
-  var pos = 0;
-  var id = setInterval(frame, 5);
-  function frame() {
-    if (pos == 350) {
-      clearInterval(id);
-    } else {
-      pos++;
-      elem.style.top = pos + 'px';
-      elem.style.left = pos + 'px';
-    }
-  }
-}
-  document.getElementById("demo").innerHTML =
-"Page path is " + window.location.pathname;
-  var x, y, z;    // Statement 1
-x = 5;          // Statement 2
-y = 6;          // Statement 3
-z = x + y;      // Statement 4
-  var fruits = ["Banana", "Orange", "Apple", "Mango"];
-fruits.sort();        // Sorts the elements of fruits
-  var fruits = ["Banana", "Orange", "Apple", "Mango"];
-fruits.sort();        // First sort the elements of fruits
-fruits.reverse();     // Then reverse the order of the elements
 
-  
 
   function startGame() {
     birdBottom -= gravity;
@@ -176,31 +125,6 @@ fruits.reverse();     // Then reverse the order of the elements
       }
     }
   }
-  
-
-function myFunction(a, b) {
-  return a * b;             // Function returns the product of a and b
-}
-  function toCelsius(fahrenheit) {
-  return (5/9) * (fahrenheit-32);
-}
-document.getElementById("demo").innerHTML = toCelsius(77);
-  function toCelsius(fahrenheit) {
-  return (5/9) * (fahrenheit-32);
-}
-  function validateForm() {
-  if (x == "") {
-    alert("Name must be filled out");
-    return false;
-  else
-    alert("Good choice for a name");
-  }
-}
-document.getElementById("demo").innerHTML = toCelsius;
-  var x = toCelsius(77);
-var text = "The temperature is " + x + " Celsius";
-  var text = "The temperature is " + toCelsius(77) + " Celsius";
-  var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
   
 
   function jump() {
