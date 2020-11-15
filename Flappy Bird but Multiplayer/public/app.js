@@ -281,5 +281,30 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+  
+ function sortLeaderboard() {
+    scoreLabel.innerHTML = "Score: " + myScore;
+    let listItems = "";
+    let leaderBoard = new Array();
+    for (let item in allBirds) {
+      leaderBoard.push({
+        nickname: allBirds[item].nickname,
+        score: allBirds[item].score,
+      });
+    }
+    leaderBoard.sort((a, b) => {
+      b.score - a.score;
+    });
+    leaderBoard.forEach((bird) => {
+      listItems +=
+        "<li class='score-item'><span class='name'>" +
+        bird.nickname +
+        "</span><span class='points'>" +
+        bird.score +
+        "pts</span></li>";
+    });
+    scoreList.innerHTML = listItems;
+  }
+});
 
  
