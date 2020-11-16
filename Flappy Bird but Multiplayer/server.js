@@ -43,3 +43,95 @@ app.get("/auth", function (req, res) {
     }
   });
 });
+
+const listener = app.listen(process.env.PORT, () => {
+  console.log("App is listening on port " + listener.address().port);
+});
+
+realtime.connection.once("connected", () => {
+  topScoreChannel = realtime.channels.get(topScoreChannelName, {
+    params: { rewind: 1 },
+  });
+  topScoreChannel.subscribe("score", (msg) => {
+    highScore = msg.data.score;
+    highScoreNickname = msg.data.nickname;
+    topScoreChannel.unsubscribe();
+  });
+  gameChannel = realtime.channels.get(gameChannelName);
+  gameChannel.presence.subscribe("enter", (msg) => {
+    birdCount++;
+    console.log("JOINED Bird Count: " + birdCount);
+    if (birdCount === 1 && !isGameTickerOn) {
+      console.log("STARTING GAME TICK");
+      gameTicker = setInterval(startGameTick, 100);
+      isGameTickerOn = true;
+    }
+    birds[msg.clientId] = {
+      id: msg.clientId,
+      left: 220,
+      bottom: 350,
+      isDead: false,
+      nickname: msg.data.nickname,
+      score: 0,
+    };
+    subscribeToPlayerInput(msg.clientId);
+  });
+  gameChannel.presence.subscribe("leave", (msg) => {
+    if (birds[msg.clientId] != undefined) {
+      birdCount--;
+      console.log("LEFT Bird count " + birdCount + " " + msg.clientId);
+      birds[msg.clientId].isDead = true;
+      setTimeout(() => {
+        delete birds[msg.clientId];
+      }, 250);
+
+      if (birdCount === 0) {
+        console.log("STOPPING GAME TICK");
+        isGameTickerOn = false;
+        clearInterval(gameTicker);
+      }
+    }
+  });
+});
+
+function subscribeToPlayerInput(id) {
+  birdChannels[id] = realtime.channels.get("bird-position-" + id);
+  birdChannels[id].subscribe("pos", (msg) => {
+    if (birds[id]) {
+      birds[id].bottom = msg.data.bottom;
+      birds[id].nickname = msg.data.nickname;
+      birds[id].score = msg.data.score;
+      if (msg.data.score > highScore) {
+        highScore = msg.data.score;
+        highScoreNickname = msg.data.nickname;
+        topScoreChannel.publish("score", {
+          score: highScore,
+          nickname: highScoreNickname,
+        });
+      }
+    }
+  });
+}
+
+function startGameTick() {
+  if (obstacleTimer === 0 || obstacleTimer === 3000) {
+    obstacleTimer = 0;
+    gameStateObj = {
+      birds: birds,
+      highScore: highScore,
+      highScoreNickname: highScoreNickname,
+      launchObstacle: true,
+      obstacleHeight: Math.random() * 60,
+    };
+  } else {
+    gameStateObj = {
+      birds: birds,
+      highScore: highScore,
+      highScoreNickname: highScoreNickname,
+      launchObstacle: false,
+      obstacleHeight: "",
+    };
+  }
+  obstacleTimer += 100;
+  gameChannel.publish("game-state", gameStateObj);
+}
