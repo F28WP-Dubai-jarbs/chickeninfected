@@ -1,11 +1,14 @@
 {
   "name": "floppyfish",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A game where a fish jumps over pipes to earn score.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "webpack -w -d",
+		"build": "webpack -p",
+		"sync": "git fetch upstream && git merge upstream/master && git push -f origin master"
   },
   "repository": {
     "type": "git",
