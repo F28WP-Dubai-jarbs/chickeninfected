@@ -18,7 +18,9 @@ let topScoreChannelName = "flappy-top-score";
 const app = express();
 app.use(express.static("public"));
 
-const realtime = new Ably.Realtime('b9fqTw.sTVvlA:tRrwe6_fe57qnt1X');
+const realtime = new Ably.Realtime({
+  key: process.env.ABLY_API_KEY,
+});
 
 const uniqueId = function () {
   return "id-" + Math.random().toString(36).substr(2, 16);
