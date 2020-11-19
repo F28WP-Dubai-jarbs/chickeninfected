@@ -1,14 +1,13 @@
 {
   "name": "floppyfish",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "description": "A game where a fish jumps over pipes to earn score.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "dev": "webpack -w -d",
-		"build": "webpack -p",
-		"sync": "git fetch upstream && git merge upstream/master && git push -f origin master"
+    	 "start": "node server.js",
+   	 "dev": "webpack -w -d",
+	 "build": "webpack -p",
+	 "sync": "git fetch upstream && git merge upstream/master && git push -f origin master"
   },
   "repository": {
     "type": "git",
@@ -20,6 +19,21 @@
     "url": "https://github.com/rd2004-boop/chickeninfected/issues"
   },
   "homepage": "https://github.com/rd2004-boop/chickeninfected#readme",
+  "devDependencies": {
+		"core-js": "^3.6.5",
+		"css-loader": "^4.3.0",
+		"file-loader": "^6.2.0",
+		"html-loader": "^1.3.2",
+		"nodemon": "^2.0.6",
+		"nodemon-webpack-plugin": "^4.3.2",
+		"style-loader": "^1.3.0",
+		"svg-url-loader": "^6.0.0",
+		"url-loader": "^4.1.1",
+		"webpack": "^4.27.1",
+		"webpack-cli": "^3.1.2",
+		"webpack-dev-server": "^3.1.10",
+		"webpack-node-externals": "^2.5.2"
+	},
   "dependencies": {
     "ably": "^1.2.4",
     "dotenv": "^8.2.0",
