@@ -7,10 +7,7 @@
     "node": "14.15.0"
   },
   "scripts": {
-    	 "start": "node server.js",
-   	 "dev": "webpack -w -d",
-	 "build": "webpack -p",
-	 "sync": "git fetch upstream && git merge upstream/master && git push -f origin master"
+    	 "start": "node server.js"
   },
   "repository": {
     "type": "git",
