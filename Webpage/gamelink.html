@@ -24,11 +24,25 @@
             <form class = "register-form">
                 <input type= "text" placeholder = "username"/>
                 <input type= "text" placeholder = "password"/>
+                <input type= "text" placeholder = "confirm password"/>
                 <button>Done</button>
                 <p class = "message" > Already Registered? <a href = "#"> Login </a></p>
             </form>
- 
+            
+            <form class = "login-form">
+                <input type = "text" placeholder = "username"/>
+                <input type= "password" placeholder = "password"/>
+                <button>login</button>
+                <p class = "message">Create an account? <a href = "#"> Register </a></p>
+            </form>
         </div>
         </div> 
+
+        <script src= 'https://code.jquery.com/jquery-3.2.1.min.js'> </script>
+        <script>
+            $('.message a').click(function(){
+            $('form').animate({height:"toggle", opacity:"toggle"}, "slow");
+            });
+        </script>
     </body>
 </html>

@@ -37,3 +37,17 @@
     font-size: 14px;
     cursor: pointer;
 }
+
+.form .message {
+    margin: 15px 0 0;
+    font-family: "Roboto", sans-serif;
+    font-size: 12px; 
+}
+
+.form .message a{
+    text-decoration: none;
+}
+
+.form .register-form {
+    display: none;
+}
