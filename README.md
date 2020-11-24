@@ -20,8 +20,8 @@ Game Overview:
 
 Team Roles:
 
-- Ryan (rd2004) : Lead Developer - Implimenting Physics, Graphics, Overseeing and helping Others in the group.
-- Svedha (sa2012) : Game Page Dev - Implimenting the game web page and visual aesthetics of the game.
-- Bhavika (bk2002) : Server Side - Implimenting server side database functionality and security.
+- Ryan (rd2004) : Lead Developer - Implementing Physics, Graphics, Overseeing and helping Others in the group.
+- Svedha (sa2012) : Game Page Dev - Implementing the game web page and visual aesthetics of the game.
+- Bhavika (bk2002) : Server Side - Implementing server side database functionality and security.
 - Jishnu (jpj2000) : UI and Maintenance - Maintenance and User Interface for the game.
 - Alister (axc2000) : Art and Assets - Developing Art assets and trailer for game.
