@@ -21,30 +21,27 @@
         <div class = "login-page">
         <div class = "form">
 
-            <form class = "register-form">
-                <input type= "text" placeholder = "username"/>
-                <input type= "text" placeholder = "password"/>
-                <input type= "text" placeholder = "confirm password"/>
-                <button>Done</button>
-                <p class = "message" > Already Registered? <a href = "#"> Login </a></p>
-            </form>
-            
             <form class = "login-form">
-                <input type = "text" placeholder = "username"/>
-                <input type= "password" placeholder = "password"/>
-                <button>login</button>
-                <p class = "message">Create an account? <a href = "#"> Register </a></p>
+                <input type = "text" id = "username" placeholder = "username"/><br>
+                <input type= "password" id = "password" placeholder = "password"/><br>
+                <button id = "Login_Register">login / register</button>
             </form>
             
         </div>
         </div> 
-
-        <script src= 'https://code.jquery.com/jquery-3.2.1.min.js'> </script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
         <script>
-            $('.message a').click(function(){
-            $('form').animate({height:"toggle", opacity:"toggle"}, "slow");
+            $(document).ready(function(){
+            var socket = io('http://localhost:82');
+            $("#Login_Register").click(function(){
+            socket.emit("login_register", {
+            user: $("#username").val(),
+            pass: $("#password").val()
             });
-        </script>
+            });
+            });
+          </script>
 
     </body>
 </html>
