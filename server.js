@@ -1,6 +1,8 @@
+//Setting up dotenv, ably and express config
 const envConfig = require("dotenv").config();
 const express = require("express");
 const Ably = require("ably");
+//Setting up game variables
 const gameChannelName = "flappy-game";
 let gameChannel;
 let birdCount = 0;
@@ -15,17 +17,21 @@ let obstacleTimer = 0;
 let topScoreChannel;
 let topScoreChannelName = "flappy-top-score";
 
+//Express connection
 const app = express();
 app.use(express.static("public"));
 
+//Ably realtime service provider
 const realtime = new Ably.Realtime({
   key: process.env.ABLY_API_KEY,
 });
 
+// Unique user id
 const uniqueId = function () {
   return "id-" + Math.random().toString(36).substr(2, 16);
 };
 
+//Link to client game file
 app.get("/", (request, response) => {
   response.sendFile(__dirname + "/index.html");
 });
@@ -44,10 +50,12 @@ app.get("/auth", function (req, res) {
   });
 });
 
+//Set up PORT listener
 const listener = app.listen(process.env.PORT, () => {
   console.log("App is listening on port " + listener.address().port);
 });
 
+//Checking realtime connection and sets up game
 realtime.connection.once("connected", () => {
   topScoreChannel = realtime.channels.get(topScoreChannelName, {
     params: { rewind: 1 },
@@ -76,6 +84,8 @@ realtime.connection.once("connected", () => {
     };
     subscribeToPlayerInput(msg.clientId);
   });
+
+  //Checks if player leaves or is dead and stops game
   gameChannel.presence.subscribe("leave", (msg) => {
     if (birds[msg.clientId] != undefined) {
       birdCount--;
@@ -94,6 +104,7 @@ realtime.connection.once("connected", () => {
   });
 });
 
+//Updates highscore count
 function subscribeToPlayerInput(id) {
   birdChannels[id] = realtime.channels.get("bird-position-" + id);
   birdChannels[id].subscribe("pos", (msg) => {
@@ -113,6 +124,7 @@ function subscribeToPlayerInput(id) {
   });
 }
 
+//Sets up game tick
 function startGameTick() {
   if (obstacleTimer === 0 || obstacleTimer === 3000) {
     obstacleTimer = 0;
