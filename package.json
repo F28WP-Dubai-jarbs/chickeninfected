@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "A game where a fish jumps over pipes to earn score.",
   "main": "server.js",
+
   "engines": {
     "node": "14.15.0"
   },
   "scripts": {
+
     "start": "node server.js"
   },
   "repository": {

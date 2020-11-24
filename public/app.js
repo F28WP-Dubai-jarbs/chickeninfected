@@ -1,3 +1,4 @@
+
 const profanityBaseURL = "https://www.purgomalum.com/service/plain?text="; // Profanity Base
 const nickNamesDictionary = [
   //Default Nickname picker

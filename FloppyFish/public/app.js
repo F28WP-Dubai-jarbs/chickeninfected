@@ -1,3 +1,4 @@
+
 const profanityBaseURL = "https://www.purgomalum.com/service/plain?text=";
 const nickNamesDictionary = [
   "pink crow",
@@ -306,5 +307,3 @@ document.addEventListener("DOMContentLoaded", () => {
     scoreList.innerHTML = listItems;
   }
 });
-
- 

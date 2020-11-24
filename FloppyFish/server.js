@@ -1,3 +1,4 @@
+
 const envConfig = require("dotenv").config();
 const express = require("express");
 const Ably = require("ably");
@@ -135,3 +136,4 @@ function startGameTick() {
   obstacleTimer += 100;
   gameChannel.publish("game-state", gameStateObj);
 }
+
