@@ -1,0 +1,60 @@
+<html>
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="common.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="gamelink.css" media="all" />
+    </head>
+
+    <div class="container">
+        <img src="capture.jpg" alt="Norway" style="width:100%;"> </div>
+        
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <div class="navbar">
+        <a href="index.html"><i class="fa fa-fw fa-book"></i> Project</a>
+        <a href="aboutgame.html"><i class="fa fa-fw fa-play"></i> About Game</a>
+        <a class="active1" href="gamelink.html"><i class="fa fa-fw fa-link"></i> Game Link</a>
+        
+    </div>
+
+    <body>
+        <div class = "login-page">
+        <div class = "form">
+
+            <form class = "login-form">
+                <input type = "text" id = "username" placeholder = "username"/><br>
+                <input type= "password" id = "password" placeholder = "password"/><br>
+                <button id = "Login_Register">login / register</button>
+            </form>
+            
+        </div>
+        </div> 
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            $(document).ready(function(){
+            var socket = io('http://localhost:82');
+            $("#Login_Register").click(function(){
+            socket.emit("login_register", {
+            user: $("#username").val(),
+            pass: $("#password").val()
+            });
+            socket.on("logged_in", function(name){
+                window.location.replace('https://floppy-fish.herokuapp.com/');
+            });
+
+            socket.on("invalid", function(){
+                alert("Username / Password Invalid, Please try again!");
+            });
+
+            socket.on("error", function(){
+                alert("Error: Please try again!");
+            });
+            });
+            });
+            
+          </script>
+
+    </body>
+</html>
