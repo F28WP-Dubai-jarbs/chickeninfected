@@ -29,6 +29,7 @@
             
         </div>
         </div> 
+
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="/socket.io/socket.io.js"></script>
         <script>
@@ -39,8 +40,20 @@
             user: $("#username").val(),
             pass: $("#password").val()
             });
+            socket.on("logged_in", function(name){
+                window.location.replace('https://floppy-fish.herokuapp.com/');
+            });
+
+            socket.on("invalid", function(){
+                alert("Username / Password Invalid, Please try again!");
+            });
+
+            socket.on("error", function(){
+                alert("Error: Please try again!");
             });
             });
+            });
+            
           </script>
 
     </body>

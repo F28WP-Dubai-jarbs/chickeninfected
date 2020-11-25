@@ -45,14 +45,8 @@ db.connect(function (error) {
 app.use(express.static('./'));
 
 
-
 io.on('connection', function (socket) {
   var req = socket.request;
-  if(req.session.userID != null){
-    db.query("SELECT * FROM users WHERE id=?", [req.session.userID], function(err, rows, fields){
-    socket.emit("logged_in", {user: rows[0].Username});
-    });
-    }
   socket.on("login_register", function(data){
     const user = data.user,
     pass = data.pass;
@@ -61,13 +55,18 @@ io.on('connection', function (socket) {
         db.query("INSERT INTO users(`Username`, `Password`) VALUES(?, ?)", [user, pass], function(err, result){
             if(!!err)
             throw err;
-          
+
             console.log(result);
             socket.emit("logged_in", {user: user});
           });
     }else{
-        const dataUser = rows[0].Username,
-        dataPass = rows[0].Password;
+      if(req.session.userID != null){
+        db.query("SELECT * FROM users WHERE id=?", [req.session.userID], function(err, rows, fields){
+        socket.emit("logged_in", {user: rows[0].username});
+        });
+      }
+      const dataUser = rows[0].username,
+        dataPass = rows[0].password;
       if(dataPass == null || dataUser == null){
         socket.emit("error");
       }
@@ -82,20 +81,6 @@ io.on('connection', function (socket) {
     });
 
   });
-
-  socket.on("logged_in", function(name){
-    $("#n_log_in").hide();
-    $("#log_in").html("Welcome back " + name + ", nice to see you again!");
-    $("#log_in").show();
-    });
-  socket.on("invalid", function(){
-    alert("Username / Password Invalid, Please try again!");
-    });
-  socket.on("error", function(){
-    alert("Error: Please try again!");
-    });
-
-});
   
-
+});
 
