@@ -1,4 +1,5 @@
- 
+
+  
   /* Float four columns side by side */
   .column {
     float: left;
@@ -32,6 +33,16 @@
     background-color: hsl(24, 94%, 34%);
     color: white;
   }
+
+  /* Style the counter cards */
+  .card1 {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    
+    background-color: hsl(24, 94%, 34%);
+    color: white;
+  }
+  
   
   .fa {font-size:50px;}
 
@@ -73,3 +84,71 @@
 .active:after {
   content: "\2796"; /* Unicode character for "minus" sign (-) */
 }
+
+* {
+  box-sizing: border-box;
+}
+
+/* Float four columns side by side */
+.column1 {
+  float: left;
+  width: 25%;
+  padding: 0 5px;
+}
+
+/* Float four columns side by side */
+.column2 {
+  float: left;
+  width: 100%;
+  padding: 0 5px;
+}
+
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color:  hsl(24, 94%, 34%);
+  color: white;
+}
+
+.fa {font-size:50px;}
+
+/* Make sure that padding behaves as expected */
+* {box-sizing:border-box}
+
+/* Container for skill bars */
+.container {
+width: 100%; /* Full width */
+background-color: #ddd; /* Grey background */
+}
+
+.skills {
+text-align: right; /* Right-align text */
+padding-top: 10px; /* Add top padding */
+padding-bottom: 10px; /* Add bottom padding */
+color: white; /* White text color */
+}
+
+.html {width: 20%; background-color: #4CAF50;} /* Green */
+.css {width: 24%; background-color: #2196F3;} /* Blue */
+.js {width: 56%; background-color: #f44336;} /* Red */
+.php {width: 100%; background-color: #808080;} /* Dark Grey */
