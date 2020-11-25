@@ -21,6 +21,7 @@ io.use(function (socket, next) {
 app.use(sessionMiddleware);
 app.use(cookieParser());
 
+// database connection setup
 const config = {
   "host": "localhost",
   "user": "root",
@@ -34,7 +35,8 @@ var db = mysql.createConnection({
   password: config.password,
   database: config.database
 });
-
+// the table used is named users
+// it has columns id (auto increment) as primary key, username and password
 db.connect(function (error) {
   if (!!error)
   throw error;
@@ -50,9 +52,11 @@ io.on('connection', function (socket) {
   socket.on("login_register", function(data){
     const user = data.user,
     pass = data.pass;
-    db.query("SELECT * FROM users WHERE Username=?", [user], function(err, rows, fields){
+    //searching if user info already present
+    db.query("SELECT * FROM users WHERE username=?", [user], function(err, rows, fields){
     if(rows.length == 0){
-        db.query("INSERT INTO users(`Username`, `Password`) VALUES(?, ?)", [user, pass], function(err, result){
+        // if not present, adding it in
+        db.query("INSERT INTO users(`username`, `password`) VALUES(?, ?)", [user, pass], function(err, result){
             if(!!err)
             throw err;
 
@@ -60,6 +64,7 @@ io.on('connection', function (socket) {
             socket.emit("logged_in", {user: user});
           });
     }else{
+      // if present, logging in
       if(req.session.userID != null){
         db.query("SELECT * FROM users WHERE id=?", [req.session.userID], function(err, rows, fields){
         socket.emit("logged_in", {user: rows[0].username});
