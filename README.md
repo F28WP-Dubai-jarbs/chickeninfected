@@ -4,6 +4,8 @@ Website Link: https://f28wp-dubai-jarbs.github.io/chickeninfected/
 
 Game Link: https://floppy-fish.herokuapp.com/
 
+Game trailer: https://www.youtube.com/watch?v=VKf4tE7tC8o&t
+
 Members: Jishnu (jpj2000), Alister (axc2000), Ryan (rd2004), Bhavika (bk2002), Svedha (sa2012).
 
 Game Name: Floppy Fish Multiplayer
